@@ -1,0 +1,17 @@
+import pyttsx3
+
+engine = pyttsx3.init('sapi5')
+voices = engine.getProperty('voices')
+
+print("\n🎙️ VOZES QUE O PYTHON CONSEGUE USAR:")
+print("="*60)
+for i, v in enumerate(voices):
+    print(f"  [{i}] {v.name}")
+print("="*60)
+
+# Testa cada uma
+for i, v in enumerate(voices):
+    print(f"\n🔊 Testando voz [{i}] — {v.name}")
+    engine.setProperty('voice', voices[i].id)
+    engine.say(f"Olá! Essa é a voz número {i}.")
+    engine.runAndWait()
